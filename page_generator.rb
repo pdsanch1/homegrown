@@ -3,7 +3,7 @@ require 'json'
 
 class WebPageGenerator
   
-  def retrive_students_from_api
+  def retrieve_students_from_api
     json_response = open("http://codemountain.com/api/students/pm.json").read
     return JSON.parse(json_response)
   end
@@ -24,9 +24,9 @@ class WebPageGenerator
     puts "		<ul>"
     
     if (list_type=='random')
-      student_list=[retrive_students_from_api.sample]
+      student_list=[retrieve_students_from_api.sample]
     else
-      student_list=retrive_students_from_api
+      student_list=retrieve_students_from_api
     end
     student_list.each do |student_hash|
       puts "      <li class='frame'>"
